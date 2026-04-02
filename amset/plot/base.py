@@ -5,7 +5,7 @@ from typing import List, Optional, Union
 
 import numpy as np
 from monty.serialization import loadfn
-from pkg_resources import resource_filename
+from importlib.resources import files
 
 from amset import __version__
 from amset.core.data import AmsetData
@@ -16,8 +16,8 @@ __author__ = "Alex Ganose"
 __maintainer__ = "Alex Ganose"
 __email__ = "aganose@lbl.gov"
 
-amset_base_style = resource_filename("amset.plot", "amset_base.mplstyle")
-revtex_style = resource_filename("amset.plot", "revtex.mplstyle")
+amset_base_style = files("amset.plot").joinpath("amset_base.mplstyle")
+revtex_style = files("amset.plot").joinpath("revtex.mplstyle")
 base_total_color = "#193A4A"
 
 

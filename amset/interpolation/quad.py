@@ -2,7 +2,7 @@ import math
 
 import numpy as np
 from monty.serialization import loadfn
-from pkg_resources import resource_filename
+from importlib.resources import files
 
 # Format of quad schemes.
 # high:
@@ -14,7 +14,7 @@ from pkg_resources import resource_filename
 # low:
 #   triangle: centroid
 #   quad: dunavant_00
-QUAD_SCHEMES = loadfn(resource_filename("amset.interpolation.quad", "quad.json"))
+QUAD_SCHEMES = loadfn(files("amset.interpolation.quad").joinpath("quad.json"))
 
 
 def get_triangle_vol(simplex):

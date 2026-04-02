@@ -2,7 +2,7 @@
 
 import numpy as np
 from monty.serialization import loadfn
-from pkg_resources import resource_filename
+from importlib.resources import files
 from pymatgen.electronic_structure.core import Spin
 from scipy.constants import physical_constants
 
@@ -52,4 +52,4 @@ str_to_spin = {"up": Spin.up, "down": Spin.down}
 spin_to_int = {Spin.up: 0, Spin.down: 1}
 int_to_spin = {0: Spin.up, 1: Spin.down}
 
-defaults = loadfn(resource_filename("amset", "defaults.yaml"))
+defaults = loadfn(files("amset").joinpath("defaults.yaml"))
