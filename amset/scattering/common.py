@@ -20,7 +20,7 @@ def calculate_inverse_screening_length_sq(amset_data, dielectric):
         ef = fermi_levels[n, t]
         temp = amset_data.temperatures[t]
         f = fd(energies, ef, temp * boltzmann_au)
-        integral = np.trapz(tdos * f * (1 - f), x=energies)
+        integral = np.trapezoid(tdos * f * (1 - f), x=energies)
         inverse_screening_length_sq[n, t] = (
             integral * 4 * np.pi / (dielectric * boltzmann_au * temp * vol)
         )
